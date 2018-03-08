@@ -209,7 +209,7 @@ def makefile():
             return filename + ".txt"
         return filename
     except Exception as e:
-            print "viddu"
+            print "failed to make a file"
 
 # The Function will ask the user for input the lenght of the pasword, then just compares the output
 # with the input and if it is 6 or over then the user will be prompted with a warning.
