@@ -5,7 +5,7 @@ import logging
 
 
 #if len(sys.argv) < 2:
-#       print "Usage: python dftp_server.py localhost, port"
+#       print "Usage: python ftp_server.py localhost, port"
 #       sys.exit(1)
 
 
@@ -29,7 +29,7 @@ class PARAMETER_ERROR(Exception):
 class FILE_ERROR(Exception):
         pass
         #PARAMETER ERROR RESPONSE CODE IS 3
-class DFTP_ERROR(Exception):
+class FTP_ERROR(Exception):
         pass
 
 def list_response(request):
@@ -159,12 +159,12 @@ def search_file(line):
 def check_validation(line):
         parts = line.split(" ")
         if parts[0] not in methods:
-                raise DFTP_ERROR("Not a valid FTP method")
+                raise FTP_ERROR("Not a valid FTP method")
         elif len(parts) < 3 or len(parts) !=3:
-                raise DFTP_ERROR("request lenght not valid")
+                raise FTP_ERROR("request lenght not valid")
         elif int(parts[1]) !=0:
                 close_connection()
-                raise DFTP_ERROR("non-zero body lenght")
+                raise FTP_ERROR("non-zero body lenght")
         status = True
         return line, status
 
@@ -187,7 +187,7 @@ def parse_request(request):
                 down = parse_download_request(request)
                 return down
 
-def dftp_server():
+def ftp_server():
         #host = sys.argv[1]
         #port = int(sys.argv[2])
         host = "localhost"
@@ -210,6 +210,6 @@ def dftp_server():
                 request = ""
         server.close()
 while True:
-	dftp_server()
+	ftp_server()
 
 
