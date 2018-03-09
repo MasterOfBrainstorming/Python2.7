@@ -190,7 +190,7 @@ def parse_user_range(lenght):
         for i in lst_u:
             p += str(ord(i))+" "
         print p
-        #lst+= "".join(p.split(","))
+        lst+= "".join(p.split(","))
         
         
         print "jes"
@@ -223,13 +223,13 @@ def password_lenght():
               "Would you like to proceed?"
         caution = answer()
         if caution == 1:
-            #brute_list(answ)
+            brute_list(answ)
             test = parse_user_range(answ)
         elif caution == 0:
             return
     elif answ < 6:
         test = parse_user_range(answ)
-        #brute_list(answ)
+        brute_list(answ)
 
 # First thing that pops up, these are the asnwers to the question at start.
 # [Option 1] call the function password leght
