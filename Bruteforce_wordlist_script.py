@@ -11,17 +11,6 @@ class ERROR_USER_INPUT(Exception):
 
 
 
-def elite_list(passwd):
-    elitechr = {"a":4,
-                "e":3,
-                "s":5,
-                "i":1,
-                "o":0,
-                "z":2}
-    
-
-
-
 
 def answer():
     try:
